@@ -16,8 +16,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - run: mkdir -p ${{ github.workspace }}/mydir
-    - run: echo hello > ${{ github.workspace }}/mydir/world.txt
+
     - name: Set up JDK 11
       uses: actions/setup-java@v3
       with:
@@ -30,4 +29,4 @@ jobs:
        uses: actions/upload-artifact@v3
        with:
         name: my-artifact
-        path: ${{ github.workspace }}/mydir/world.txt
+        path: /home/runner/work/ant-sample123/ant-sample123/build/ear/example2.war
