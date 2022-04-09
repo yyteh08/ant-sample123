@@ -30,3 +30,10 @@ jobs:
        with:
         name: my-artifact
         path: /home/runner/work/ant-sample123/ant-sample123/build/ear/example2.war
+        
+    - name: SonarQube Scan
+      uses: sonarsource/sonarqube-scan-action@master
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        LC_ALL: "ru_RU.UTF-8"
