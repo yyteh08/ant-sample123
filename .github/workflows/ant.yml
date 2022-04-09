@@ -23,3 +23,14 @@ jobs:
         distribution: 'temurin'
     - name: Build with Ant
       run: ant -noinput -buildfile build.xml
+      
+      env:
+        name: my-artifact
+        steps:
+          - run: |
+             mkdir -p ${{ github.workspace }}/artifact
+             echo hello > ${{ github.workspace }}/artifact/example2.war
+          - uses: actions/upload-artifact@v3
+            with:
+             name: ${{ env.name }}-name
+             path: ${{ github.workspace }}/artifact/**/*
